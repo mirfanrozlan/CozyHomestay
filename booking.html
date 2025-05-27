@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - Cozy Homestay</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">Cozy Homestay</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="booking.html" class="active">Booking</a>
+        </div>
+    </nav>
+
+    <!-- Floating Login Button -->
+    <button id="loginBtn" class="floating-btn">Login / Sign Up</button>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <select name="role">
+                    <option value="customer">Customer</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button type="submit">Login</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signupForm" class="auth-form" style="display: none;">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="booking-container">
+            <div class="booking-header">
+                <h1>Book Your Stay</h1>
+                <p>Select your dates and customize your stay</p>
+            </div>
+
+            <div class="booking-layout">
+                <!-- Interactive Calendar (Left Side) -->
+                <div class="calendar-section">
+                    <div class="calendar-container" id="calendar">
+                        <div class="calendar-header">
+                            <button type="button" class="calendar-nav" id="prevMonth">&lt;</button>
+                            <h2 id="currentMonth">January 2024</h2>
+                            <button type="button" class="calendar-nav" id="nextMonth">&gt;</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays"></div>
+                    </div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-color available"></span>
+                            <span>Available</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color unavailable"></span>
+                            <span>Unavailable</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color selected"></span>
+                            <span>Selected</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form (Right Side) -->
+                <div class="booking-form-container">
+                    <form class="booking-form" id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" required>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                    </select>
+                </div>
+
+                <!-- Personalization Section -->
+                <div class="preferences-section">
+                    <h3>Customize Your Stay</h3>
+                    <div class="form-group">
+                        <label for="roomSetup">Room Setup Preference</label>
+                        <select id="roomSetup" name="roomSetup">
+                            <option value="standard">Standard Setup</option>
+                            <option value="business">Business Setup (Work Desk)</option>
+                            <option value="family">Family Setup (Extra Beds)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Amenities</label>
+                        <div class="amenities-grid">
+                            <div class="amenity-item">
+                                <input type="checkbox" id="wifi" name="amenities" value="wifi" checked disabled>
+                                <label for="wifi">WiFi (Included)</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="breakfast" name="amenities" value="breakfast" checked disabled>
+                                <label for="breakfast">Breakfast (Included)</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="parking" name="amenities" value="parking">
+                                <label for="parking">Parking</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="airport" name="amenities" value="airport">
+                                <label for="airport">Airport Pickup</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements or preferences?"></textarea>
+                    </div>
+                </div>
+
+                <!-- Dynamic Price Breakdown -->
+                <div class="price-breakdown" id="priceBreakdown">
+                    <h3>Price Breakdown</h3>
+                    <div class="price-item">
+                        <span>Base Rate:</span>
+                        <span id="basePrice">$100</span>
+                    </div>
+                    <div class="price-item" id="dynamicPriceItem" style="display: none;">
+                        <span>Dynamic Rate Adjustment:</span>
+                        <span id="dynamicPrice">$0</span>
+                    </div>
+                    <div class="price-item" id="loyaltyDiscountItem" style="display: none;">
+                        <span>Loyalty Discount:</span>
+                        <span id="loyaltyDiscount">-$0</span>
+                    </div>
+                    <div class="price-item price-total">
+                        <span>Total:</span>
+                        <span id="totalPrice">$100</span>
+                    </div>
+                </div>
+
+                        <button type="submit" class="submit-btn">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal remains unchanged -->
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
