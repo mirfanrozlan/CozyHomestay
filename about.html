@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Cozy Homestay</title>
+    <title>About Us - EFZEE COTTAGE</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* About page specific styles */
@@ -72,27 +72,28 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="nav-brand">Cozy Homestay</div>
+        <div class="nav-brand">EFZEE COTTAGE</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html" class="active">About Us</a>
             <a href="gallery.html">Gallery</a>
             <a href="booking.html">Booking</a>
+            <div class="nav-user-menu">
+                <button id="loginBtn" class="nav-button">Login / Sign Up</button>
+                <button id="logoutBtn" class="nav-button logout" style="display: none;">Logout</button>
+            </div>
         </div>
     </nav>
-
-    <!-- Floating Login Button -->
-    <button id="loginBtn" class="floating-btn">Login / Sign Up</button>
 
     <!-- About Section -->
     <section class="about-section">
         <div class="about-content">
             <div class="about-header">
-                <h1>Welcome to Cozy Homestay</h1>
-                <p>Your Home Away From Home in Batu Pahat</p>
+                <h1>Welcome to EFZEE COTTAGE</h1>
+                <p>Your Tranquil Retreat in Batu Pahat</p>
             </div>
 
-            <p>At Cozy Homestay, we believe that travel is not just about finding a place to stay – it's about creating memories and experiencing the warmth of a true home. Located in the heart of Batu Pahat, our homestay offers a perfect blend of comfort, convenience, and authentic local experience.</p>
+            <p>At EFZEE COTTAGE, we believe that travel is not just about finding a place to stay – it's about discovering a peaceful sanctuary where memories are created. Located in the heart of Batu Pahat, our homestay offers the perfect blend of serenity, comfort, and authentic local experience.</p>
             
             <p>Since our establishment, we have been dedicated to providing our guests with personalized service and attention to detail that makes their stay memorable. Our homestay is designed to give you the comfort of a hotel with the warmth and character of a family home.</p>
 
@@ -137,10 +138,6 @@
             <form id="loginForm" class="auth-form">
                 <input type="email" placeholder="Email" required>
                 <input type="password" placeholder="Password" required>
-                <select name="role">
-                    <option value="customer">Customer</option>
-                    <option value="admin">Admin</option>
-                </select>
                 <button type="submit">Login</button>
             </form>
 
@@ -149,13 +146,12 @@
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
                 <input type="password" placeholder="Password" required>
-                <input type="password" placeholder="Confirm Password" required>
+                <input type="tel" placeholder="Phone Number" required>
                 <button type="submit">Sign Up</button>
             </form>
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script src="auth.js"></script>
 </body>
 </html>
