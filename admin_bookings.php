@@ -8,7 +8,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
 }
 
 // Database connection
-require_once 'config.php';
+require_once 'include/config.php';
 
 // Handle booking status updates
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {

@@ -8,7 +8,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
 }
 
 // Database connection
-require_once 'config.php';
+require_once 'include/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -163,7 +163,7 @@ require_once 'config.php';
                     </div>
 
                     <!-- Rating Card -->
-                    <div class="col-md-6 col-xl-3 mb-4">
+                    <!-- <div class="col-md-6 col-xl-3 mb-4">
                         <div class="card border-left-warning shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -179,7 +179,7 @@ require_once 'config.php';
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Recent Activity -->
@@ -227,7 +227,7 @@ require_once 'config.php';
                     </div>
 
                     <!-- Recent Reviews -->
-                    <div class="col-12 col-xl-6 mb-4">
+                    <!-- <div class="col-12 col-xl-6 mb-4">
                         <div class="card shadow">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Recent Reviews</h6>
@@ -264,7 +264,7 @@ require_once 'config.php';
                                 <a href="admin_reviews.php" class="btn btn-primary btn-sm mt-3">View All Reviews</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
